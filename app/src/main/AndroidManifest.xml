@@ -12,6 +12,18 @@
         android:theme="@style/Theme.COEN390_project"
         tools:targetApi="31">
         <activity
+            android:name=".Viewprofile"
+            android:exported="false" />
+        <activity
+            android:name=".Checkstatus"
+            android:exported="false" />
+        <activity
+            android:name=".Unblock"
+            android:exported="false" />
+        <activity
+            android:name=".AddProfile"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
