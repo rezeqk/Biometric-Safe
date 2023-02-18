@@ -13,15 +13,19 @@
         tools:targetApi="31">
         <activity
             android:name=".Viewprofile"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".Checkstatus"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".Unblock"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".AddProfile"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
