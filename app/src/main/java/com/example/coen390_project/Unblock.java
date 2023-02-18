@@ -29,10 +29,7 @@ public class Unblock extends AppCompatActivity {
         unlock_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(Unblock.this,"The safe is unlocked", Toast.LENGTH_SHORT);
-                    toast.show();
-//                toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.START,100,0);
-//                toast.show();
+                Toast.makeText(Unblock.this,"The safe is unlocked", Toast.LENGTH_SHORT).show();
             }
         });
 
