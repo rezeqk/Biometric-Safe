@@ -18,7 +18,7 @@ public class Unblock extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_unblock);
-        getSupportActionBar().setTitle("Unblock");
+        getSupportActionBar().setTitle("Un block");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         unlock_button = (Button)findViewById(R.id.unlock_button);
