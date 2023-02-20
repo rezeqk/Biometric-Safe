@@ -10,50 +10,72 @@
 
     <Button
         android:id="@+id/add_profile"
-        android:layout_width="201dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="504dp"
+        android:layout_width="167dp"
+        android:layout_height="163dp"
+        android:layout_marginTop="64dp"
+        android:backgroundTint="#FF03DAC5"
         android:text="Add Profiles"
+        android:textAllCaps="false"
+        android:textColor="#FFFF "
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.868"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/check_status"
+        app:layout_constraintVertical_bias="0.006" />
 
     <Button
         android:id="@+id/unblocker"
-        android:layout_width="201dp"
-        android:layout_height="45dp"
+        android:layout_width="167dp"
+        android:layout_height="163dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="#FF03DAC5"
         android:text="Unblock"
+        android:textAllCaps="false"
+        android:textColor="#FFFF "
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/view_profile"
+        app:layout_constraintEnd_toStartOf="@+id/check_status"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/check_status"
-        app:layout_constraintVertical_bias="0.117" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.747" />
 
     <Button
         android:id="@+id/view_profile"
-        android:layout_width="201dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="300dp"
+        android:layout_width="167dp"
+        android:layout_height="163dp"
+        android:backgroundTint="#FF03DAC5"
         android:text="View Profiles"
+        android:textAllCaps="false"
+        android:textColor="#FFFF "
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_profile"
-        app:layout_constraintVertical_bias="0.226" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.739" />
 
     <Button
         android:id="@+id/check_status"
-        android:layout_width="201dp"
-        android:layout_height="45dp"
+        android:layout_width="167dp"
+        android:layout_height="163dp"
+        android:backgroundTint="#FF03DAC5"
         android:text="Check Status"
+        android:textAllCaps="false"
+        android:textColor="#FFFF "
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.868"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_profile"
-        app:layout_constraintVertical_bias="0.107" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.338" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
