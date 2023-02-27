@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "856284307851",
-    "project_id": "coen390-project-45432",
-    "storage_bucket": "coen390-project-45432.appspot.com"
+    "project_number": "561824455135",
+    "project_id": "coen390-project-dd591",
+    "storage_bucket": "coen390-project-dd591.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:856284307851:android:e3e3b387d746dc12910f8e",
+        "mobilesdk_app_id": "1:561824455135:android:dd1aff218ab108a046cc6a",
         "android_client_info": {
           "package_name": "com.example.coen390_project"
         }
       },
       "oauth_client": [
         {
-          "client_id": "856284307851-30kj3juqurc5hpna41sqp5bbr9dej0a1.apps.googleusercontent.com",
+          "client_id": "561824455135-dktu550o6vh1ilcrk35t8mok8ghifm3k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAmAiNlCqpxmS-jWbFN_2WG-t23uguU-jc"
+          "current_key": "AIzaSyA67wFvDWHh1fc1ZwegVhCh50q9Fr8kq2M"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "856284307851-30kj3juqurc5hpna41sqp5bbr9dej0a1.apps.googleusercontent.com",
+              "client_id": "561824455135-dktu550o6vh1ilcrk35t8mok8ghifm3k.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
