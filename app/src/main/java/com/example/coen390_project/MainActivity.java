@@ -23,7 +23,6 @@ import com.google.firebase.messaging.FirebaseMessaging;
 public class MainActivity extends AppCompatActivity {
 
     // initializing buttons
-    Button unlock;
     Button profile_add;
     Button profile_view;
     Button status_check;
@@ -37,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         //Add a title to the bar
         getSupportActionBar().setTitle("Main Menu");
         // create a method
-        unlock = (Button)findViewById(R.id.unblocker);
         profile_view=(Button)findViewById(R.id.view_profile);
         status_check=(Button) findViewById(R.id.check_status);
         profile_add=(Button) findViewById(R.id.add_profile);
@@ -58,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
                         String msg = token;
                         Log.d(TAG, msg);
                         Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                        System.out.println(msg);
+                        System.out.println("yooo");
                     }
                 });
 
@@ -68,13 +68,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, AddProfile.class);
                         startActivity(intent);
-            }
-        });
-        unlock.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Unblock.class);
-                startActivity(intent);
             }
         });
         status_check.setOnClickListener(new View.OnClickListener() {

@@ -26,10 +26,6 @@
             android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Unblock"
-            android:parentActivityName=".MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".AddProfile"
             android:parentActivityName=".MainActivity"
             android:exported="false" />
