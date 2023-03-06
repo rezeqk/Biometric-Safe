@@ -4,6 +4,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,9 +25,9 @@ import com.google.firebase.messaging.FirebaseMessaging;
 public class MainActivity extends AppCompatActivity {
 
     // initializing buttons
-    Button profile_add;
-    Button profile_view;
-    Button status_check;
+    ImageButton profile_add;
+    ImageButton profile_view;
+    ImageButton status_check;
 
     String TAG = "TAG";
 
@@ -36,9 +38,11 @@ public class MainActivity extends AppCompatActivity {
         //Add a title to the bar
         getSupportActionBar().setTitle("Main Menu");
         // create a method
-        profile_view=(Button)findViewById(R.id.view_profile);
-        status_check=(Button) findViewById(R.id.check_status);
-        profile_add=(Button) findViewById(R.id.add_profile);
+        profile_view=(ImageButton) findViewById(R.id.view_profile_button);
+        status_check=(ImageButton) findViewById(R.id.check_status_button);
+        profile_add=(ImageButton) findViewById(R.id.add_profile_button);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {

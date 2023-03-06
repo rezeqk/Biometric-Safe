@@ -8,6 +8,9 @@
     tools:context=".MainActivity"
     android:background="@drawable/gradient_background">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
 
     <FrameLayout
         android:id="@+id/add_profile"
@@ -16,7 +19,7 @@
         android:background="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintHorizontal_bias="0.258"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.316">
@@ -33,7 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="center|bottom"
             android:layout_marginTop="30dp"
             android:text="Add profile"
             android:textColor="@color/black"
@@ -43,19 +46,19 @@
 
     <FrameLayout
         android:id="@+id/status"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="245dp"
+        android:layout_height="131dp"
         android:background="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.831"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39">
+        app:layout_constraintVertical_bias="0.753">
 
         <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:id="@+id/check_status_button"
+            android:layout_width="185dp"
+            android:layout_height="91dp"
             android:layout_gravity="center"
             android:background="#fff"
             android:scaleType="fitCenter"
@@ -64,9 +67,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="center|bottom"
             android:layout_marginTop="30dp"
-            android:text="Add profile"
+            android:text="Check Status"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold" />
@@ -79,25 +82,29 @@
         android:background="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.819"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.316">
 
         <ImageButton
+            android:id="@+id/view_profile_button"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:background="#fff"
             android:scaleType="fitCenter"
-            android:src="@drawable/view_profile"/>
+            android:src="@drawable/view_profile" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="View profile"
-            android:layout_gravity="center"
+            android:layout_gravity="center|bottom"
             android:layout_marginTop="30dp"
-            android:textStyle="bold"
+            android:text="View profile"
             android:textColor="@color/black"
-            android:textSize="15dp"/>
+            android:textSize="15dp"
+            android:textStyle="bold" />
     </FrameLayout>
 
 
