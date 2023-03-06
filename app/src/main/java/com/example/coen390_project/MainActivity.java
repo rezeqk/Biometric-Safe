@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton profile_view;
     ImageButton status_check;
 
+
     String TAG = "TAG";
 
     @Override
@@ -37,12 +39,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //Add a title to the bar
         getSupportActionBar().setTitle("Main Menu");
+        getSupportActionBar().hide();
         // create a method
         profile_view=(ImageButton) findViewById(R.id.view_profile_button);
         status_check=(ImageButton) findViewById(R.id.check_status_button);
         profile_add=(ImageButton) findViewById(R.id.add_profile_button);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+
 
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
