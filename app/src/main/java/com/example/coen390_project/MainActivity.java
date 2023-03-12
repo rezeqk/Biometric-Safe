@@ -1,22 +1,14 @@
 package com.example.coen390_project;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton profile_add;
     ImageButton profile_view;
     ImageButton status_check;
+
 
 
     String TAG = "TAG";
@@ -72,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         profile_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AddProfile.class);
+                Intent intent = new Intent(MainActivity.this, AddProfile_Instruction.class);
                         startActivity(intent);
             }
         });
