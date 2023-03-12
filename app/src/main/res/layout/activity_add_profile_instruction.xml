@@ -6,19 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".AddProfile_Instruction">
 
-
-    <TextView
-        android:id="@+id/myTextView"
-        android:layout_width="396dp"
-        android:layout_height="523dp"
-        android:text="@string/instructions"
-        android:textColor="@color/black"
-        android:textSize="15sp"
+    <View
+        android:id="@+id/topview_instructions"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:background="@color/light_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@drawable/wave_test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topview_instructions"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/InstructionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Read these instructions carefully!"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/topview_instructions"
+        app:layout_constraintEnd_toEndOf="@+id/topview_instructions"
+        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintStart_toStartOf="@+id/topview_instructions"
+        app:layout_constraintTop_toTopOf="@+id/topview_instructions"
+        app:layout_constraintVertical_bias="0.61" />
+
+    <TextView
+        android:id="@+id/myTextView"
+        android:layout_width="408dp"
+        android:layout_height="475dp"
+        android:text="@string/instructions"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/create_button"
