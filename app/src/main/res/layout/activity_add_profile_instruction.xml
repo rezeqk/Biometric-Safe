@@ -9,25 +9,25 @@
 
     <TextView
         android:id="@+id/myTextView"
-        android:layout_width="407dp"
-        android:layout_height="287dp"
-        android:text="1. Add your name => (No need to prompt this, they can figure it out from the textbox and the placeholder) 2. Click the &quot;Next&quot; button to add your fingerprint => (No need to prompt this, the button should be well labeled 3. Make sure your designated finger is clean to scan => (On screen prompt to clean finger and fingerprint scanner, close popup on button press) 4.  Wait for the fingerprint light to turn on => (On screen color indicator, green/red + Written instructions at the top) 5. It might take a few seconds to scan your fingerprint => (When the fingerprint is first detected, change indicator color from 4 to a timer with how long you want them to hold) 6. Repeat for as many fingerprints as needed (If needed, prompt every time to ask if they want to add 1 more) 7. Click the &quot;Finish&quot; button to finish the registration process 8. Send back to home screen with &quot;welcome&quot; popup"
+        android:layout_width="396dp"
+        android:layout_height="523dp"
+        android:text="@string/instructions"
+        android:textColor="@color/black"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.236" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/create_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create"
+        android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.775" />
+        app:layout_constraintVertical_bias="0.96" />
 </androidx.constraintlayout.widget.ConstraintLayout>
