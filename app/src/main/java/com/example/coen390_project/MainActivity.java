@@ -13,7 +13,14 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+        basicReadWrite();
+
         //after clicking button to direct to a different page
 
         profile_add.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +94,35 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void basicReadWrite() {
+        // [START write_message]
+        // Write a message to the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
+
+//        myRef.setValue("Hello, World!");
+        // [END write_message]
+
+        // [START read_message]
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Map<String, String> value = (Map<String, String>) dataSnapshot.getValue();
+                Log.d(TAG, "Value is: " + value);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+        // [END read_message]
     }
 
     // Declare the launcher at the top of your Activity/Fragment:

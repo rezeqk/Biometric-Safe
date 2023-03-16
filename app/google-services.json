@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "856284307851",
-    "project_id": "coen390-project-45432",
-    "storage_bucket": "coen390-project-45432.appspot.com"
+    "project_number": "730886176785",
+    "firebase_url": "https://test-efec2-default-rtdb.firebaseio.com",
+    "project_id": "test-efec2",
+    "storage_bucket": "test-efec2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:856284307851:android:e3e3b387d746dc12910f8e",
+        "mobilesdk_app_id": "1:730886176785:android:cf4f1785cd236d1b7c71b0",
         "android_client_info": {
           "package_name": "com.example.coen390_project"
         }
       },
       "oauth_client": [
         {
-          "client_id": "856284307851-30kj3juqurc5hpna41sqp5bbr9dej0a1.apps.googleusercontent.com",
+          "client_id": "730886176785-sk9j42ommrfb8uohoqqsqknmjhkep5b6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAmAiNlCqpxmS-jWbFN_2WG-t23uguU-jc"
+          "current_key": "AIzaSyDkjWzTB4SzdutsoKm7N43bhar5I_8s50o"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "856284307851-30kj3juqurc5hpna41sqp5bbr9dej0a1.apps.googleusercontent.com",
+              "client_id": "730886176785-sk9j42ommrfb8uohoqqsqknmjhkep5b6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
