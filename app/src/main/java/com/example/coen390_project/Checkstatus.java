@@ -6,6 +6,9 @@ import android.os.Bundle;
 
 public class Checkstatus extends AppCompatActivity {
 
+    static Boolean safe_status;
+    static double weight;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

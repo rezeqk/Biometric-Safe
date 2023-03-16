@@ -76,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, AddProfile_Instruction.class);
                         startActivity(intent);
+                // Write a message to the database
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("message");
+
+                myRef.setValue("Hello, World!");
             }
         });
         status_check.setOnClickListener(new View.OnClickListener() {
