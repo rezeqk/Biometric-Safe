@@ -120,9 +120,13 @@ public class MainActivity extends AppCompatActivity {
                 // whenever data at this location is updated.
                 Map<String, String> value = (Map<String, String>) dataSnapshot.getValue();
                 String door_status="";
+                String invalidFingerprint = "";
                 if(value !=null ){
                     door_status = value.get("Door Status");
+                    invalidFingerprint = value.get("InvalidFingerprint");
                 }
+
+                //to change locked/unlocked status photo and textview
                 if(door_status.equals("Locked")){
                     status_check.setImageResource(R.drawable.check_status_lock);
                     lock_stat.setText("Locked");
@@ -133,6 +137,16 @@ public class MainActivity extends AppCompatActivity {
                     lock_stat.setText("Unlocked");
                     System.out.println("door is Unlocked");
                 }
+
+                //to send toast message when invalid fingerprint
+                if(invalidFingerprint.equals("true")){
+                    String toastMessage = "Invalid fingerprint scanned on safe.";
+                    Toast.makeText(MainActivity.this, toastMessage, Toast.LENGTH_SHORT).show();
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("InvalidFingerprint");
+                    myRef.setValue("false");
+                }
+
                 Log.d(TAG, "Value is: " + value);
             }
 
