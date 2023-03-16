@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This is xml is for splash screen, when the app opens -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/white" />
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/fingerprint"
+            />
+    </item>
+</layer-list>

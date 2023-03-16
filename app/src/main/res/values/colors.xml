@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_blue">#FF03DAC5</color>
-
+    <color name="teal"> #80CBC4 </color>
+    <color name="gradient_green" > #2af598 </color>
 </resources>

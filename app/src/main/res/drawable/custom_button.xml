@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- This is for custom Image button frame in the main.xml file for all 3 image buttons-->
+<!-- main.xml frame layout -->
 <shape
     xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
-
 
     <solid android:color="#fff"></solid>
 

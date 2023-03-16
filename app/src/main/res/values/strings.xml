@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Smart Safe</string>
+
+    <!--Instructions for the instruction page -->
+    <string name = "instructions">
+        <br> 1. Add your name  \n</br>
+        <br> 2. Click the "Next" button to add your fingerprint  \n</br>
+        <br> 3. Make sure your designated finger is clean to scan  \n</br>
+        <br> 4.  Wait for the fingerprint light to turn on \n</br>
+        <br> 5. It might take a few seconds to scan your fingerprint  \n</br>
+        <br> 6. Repeat for as many fingerprints as needed  \n </br>
+        <br> 7. Click the "Finish" button to finish the registration process \n </br>
+        <br> 8. Send back to home screen with "welcome" popup \n </br>
+    </string>
 </resources>
