@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wave_test_instruction"
-    tools:context=".AddProfile_Instruction">
+    tools:context=".Views.AddProfile_Instruction">
 
     <View
         android:id="@+id/topview_instructions"

@@ -1,4 +1,4 @@
-package com.example.coen390_project;
+package com.example.coen390_project.Controllers;
 
 //package com.google.firebase.example.messaging;
 

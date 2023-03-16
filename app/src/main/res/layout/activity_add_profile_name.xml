@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wave_test"
-    tools:context=".AddProfile_Name">
+    tools:context=".Views.AddProfile_Name">
 
 
     <View

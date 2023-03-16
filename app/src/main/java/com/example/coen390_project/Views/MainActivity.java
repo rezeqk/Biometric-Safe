@@ -1,4 +1,4 @@
-package com.example.coen390_project;
+package com.example.coen390_project.Views;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,8 +9,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.coen390_project.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -27,8 +30,10 @@ public class MainActivity extends AppCompatActivity {
     // initializing buttons
     ImageButton profile_add;
     ImageButton profile_view;
-    ImageButton status_check;
+    ImageView status_check;
 
+    TextView unlock_stat;
+    TextView lock_stat;
 
 
     String TAG = "TAG";
@@ -42,8 +47,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         // create a method
         profile_view=(ImageButton) findViewById(R.id.view_profile_button);
-        status_check=(ImageButton) findViewById(R.id.check_status_button);
+        status_check=(ImageView) findViewById(R.id.check_status_button);
         profile_add=(ImageButton) findViewById(R.id.add_profile_button);
+        unlock_stat=(TextView)findViewById(R.id.unlock_status);
+        lock_stat=(TextView)findViewById(R.id.lock_status);
 
 
         FirebaseMessaging.getInstance().getToken()
@@ -83,13 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 myRef.setValue("Hello, World!");
             }
         });
-        status_check.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Checkstatus.class);
-                startActivity(intent);
-            }
-        });
+
         profile_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -118,6 +119,20 @@ public class MainActivity extends AppCompatActivity {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 Map<String, String> value = (Map<String, String>) dataSnapshot.getValue();
+                String door_status="";
+                if(value !=null ){
+                    door_status = value.get("Door Status");
+                }
+                if(door_status.equals("Locked")){
+                    status_check.setImageResource(R.drawable.check_status_lock);
+                    lock_stat.setText("Locked");
+                    System.out.println("status is locked");
+                }
+                else {
+                    status_check.setImageResource(R.drawable.check_status_unlocked);
+                    lock_stat.setText("Unlocked");
+                    System.out.println("door is Unlocked");
+                }
                 Log.d(TAG, "Value is: " + value);
             }
 
