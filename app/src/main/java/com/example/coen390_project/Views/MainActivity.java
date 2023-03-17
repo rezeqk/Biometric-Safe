@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.coen390_project.Models.User;
 import com.example.coen390_project.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -68,9 +69,8 @@ public class MainActivity extends AppCompatActivity {
                         // Log and toast
                         String msg = token;
                         Log.d(TAG, msg);
-                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
-                        System.out.println(msg);
-                        System.out.println("yooo");
+                       // Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                        System.out.println("your token is " + msg);
                     }
                 });
 
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         profile_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AddProfile_Instruction.class);
+                Intent intent = new Intent(MainActivity.this, AddProfile_Name.class);
                         startActivity(intent);
                 // Write a message to the database
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -121,6 +121,8 @@ public class MainActivity extends AppCompatActivity {
                 Map<String, String> value = (Map<String, String>) dataSnapshot.getValue();
                 String door_status="";
                 String invalidFingerprint = "";
+                User tempUser = new User();
+                tempUser.setNextID(Integer.parseInt(value.get("nextID")));
                 if(value !=null ){
                     door_status = value.get("Door Status");
                     invalidFingerprint = value.get("InvalidFingerprint");
