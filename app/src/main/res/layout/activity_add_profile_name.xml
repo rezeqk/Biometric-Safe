@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wave_test"
-    tools:context=".AddProfile_Name">
+    tools:context=".Views.AddProfile_Name">
 
 
     <View
@@ -47,7 +47,7 @@
         android:layout_marginTop="56dp"
         android:text="Ready To Create Your Account?"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.28"

@@ -19,27 +19,23 @@
             android:value="test" />
 
         <activity
-            android:name=".Viewprofile"
+            android:name=".Views.Viewprofile"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Views.MainActivity" />
         <activity
-            android:name=".Checkstatus"
+            android:name=".Views.AddProfile_Name"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".AddProfile_Name"
-            android:exported="false"
-            android:parentActivityName=".AddProfile_Instruction" />
+            android:parentActivityName=".Views.AddProfile_Instruction" />
 
-        <activity android:name=".AddProfile_Instruction"
+        <activity android:name=".Views.AddProfile_Instruction"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".Views.MainActivity"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".Views.MainActivity"
             android:exported="true"/>
 
         <activity
-            android:name=".SplashScreen"
+            android:name=".Views.SplashScreen"
             android:exported="true"
             android:theme="@style/Splash"
             >
@@ -52,7 +48,7 @@
         </activity>
 
         <service
-            android:name=".MyFirebaseMessagingService"
+            android:name=".Controllers.MyFirebaseMessagingService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

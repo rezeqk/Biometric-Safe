@@ -3,13 +3,11 @@
 
     <!--Instructions for the instruction page -->
     <string name = "instructions">
-        <br> 1. Add your name  \n</br>
-        <br> 2. Click the "Next" button to add your fingerprint  \n</br>
-        <br> 3. Make sure your designated finger is clean to scan  \n</br>
-        <br> 4.  Wait for the fingerprint light to turn on \n</br>
-        <br> 5. It might take a few seconds to scan your fingerprint  \n</br>
-        <br> 6. Repeat for as many fingerprints as needed  \n </br>
-        <br> 7. Click the "Finish" button to finish the registration process \n </br>
-        <br> 8. Send back to home screen with "welcome" popup \n </br>
+       <br> 1. Make sure your designated finger is clean to scan  \n</br>
+        <br> 2. Wait for the yellow light to turn on \n</br>
+        <br> 3. With the fingerprint scanner light red, scan your fingerprint  \n</br>
+        <br> 4. The scanner light will turn off  \n</br>
+        <br> 5. When it turns off again, scan your finger again  \n </br>
+        <br> 6. Wait for confirmation that your fingerprint is saved \n </br>
     </string>
 </resources>
