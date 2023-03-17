@@ -31,7 +31,7 @@ public class AddProfile_Instruction extends AppCompatActivity {
 
 
                     User tempUser = new User();
-                    int thisID = tempUser.getNextID();
+                    int thisID = tempUser.getNextID() - 1;
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference myRef = database.getReference("enrolling");
                     DatabaseReference myRef2 = database.getReference("SafeAction");
