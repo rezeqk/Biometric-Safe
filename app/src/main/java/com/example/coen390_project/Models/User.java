@@ -6,7 +6,7 @@ public class User {
     private int id;
 
     // the name of the user
-    private String name;
+    public String name;
 
     static int nextID=0;
 
