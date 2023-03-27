@@ -2,7 +2,7 @@
     <string name="app_name">Smart Safe</string>
 
     <!--Instructions for the instruction page -->
-    <string name = "instructions">
+    <string name="instructions">
        <br> 1. Make sure your designated finger is clean to scan  \n</br>
         <br> 2. Wait for the yellow light to turn on \n</br>
         <br> 3. With the fingerprint scanner light red, scan your fingerprint  \n</br>

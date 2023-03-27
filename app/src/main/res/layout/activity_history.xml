@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.Viewprofile">
+    tools:context=".Views.History">
 
     <ListView
-        android:layout_width="383dp"
-        android:layout_height="657dp"
-        android:id="@+id/listview"
+        android:layout_width="354dp"
+        android:layout_height="638dp"
+        android:id="@+id/listview_history"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-

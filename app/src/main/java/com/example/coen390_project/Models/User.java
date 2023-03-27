@@ -1,14 +1,20 @@
 package com.example.coen390_project.Models;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class User {
 
     //assigns an ID to the user
     private int id;
 
     // the name of the user
-    private String name;
+    public String name;
 
     static int nextID=0;
+
+    // added test
+    public static HashMap<String, String> allUsers = new HashMap<String, String>();
 
     //constructor
     public User(String name) {

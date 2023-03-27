@@ -26,10 +26,9 @@ import java.util.ArrayList;
 import java.util.Map;
 
 
-public class Viewprofile extends AppCompatActivity {
+public class History extends AppCompatActivity {
 
-
-    ListView list_view;
+    ListView list_view_history;
 
     DatabaseReference reference;
 
@@ -38,27 +37,24 @@ public class Viewprofile extends AppCompatActivity {
 
     final ArrayList<String> list = new ArrayList<>();
 
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_viewprofile);
-        getSupportActionBar().setTitle("View Profile");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        list_view= findViewById(R.id.listview);
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.list_profile,list);
-        list_view.setAdapter(arrayAdapter);
+        setContentView(R.layout.activity_history);
+        getSupportActionBar().setTitle("History");
 
-        reference = FirebaseDatabase.getInstance().getReference().child("Users");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        list_view_history= findViewById(R.id.listview_history);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.list_profile,list);
+        list_view_history.setAdapter(arrayAdapter);
+
+        reference = FirebaseDatabase.getInstance().getReference().child("History");
 
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String user = snapshot.getValue(String.class);
-                list.add(user);
-                User temp = new User();
-               // added test
-                String key = snapshot.getKey();
-                (temp.allUsers).put(key, user);
+                list.add(0,user);
                 arrayAdapter.notifyDataSetChanged();
             }
 
@@ -82,7 +78,5 @@ public class Viewprofile extends AppCompatActivity {
 
             }
         });
-
     }
-
 }
