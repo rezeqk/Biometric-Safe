@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.COEN390_project"
         tools:targetApi="31">
+        <activity
+            android:name=".Views.History"
+            android:exported="false"
+            android:parentActivityName=".Views.MainActivity" />
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
@@ -26,20 +30,17 @@
             android:name=".Views.AddProfile_Name"
             android:exported="false"
             android:parentActivityName=".Views.AddProfile_Instruction" />
-
-        <activity android:name=".Views.AddProfile_Instruction"
+        <activity
+            android:name=".Views.AddProfile_Instruction"
             android:exported="false"
-            android:parentActivityName=".Views.MainActivity"/>
+            android:parentActivityName=".Views.MainActivity" />
         <activity
             android:name=".Views.MainActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".Views.SplashScreen"
             android:exported="true"
-            android:theme="@style/Splash"
-            >
-
+            android:theme="@style/Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

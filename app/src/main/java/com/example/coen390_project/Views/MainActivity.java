@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     ImageButton profile_view;
     ImageView status_check;
 
+    ImageButton history;
+
     TextView unlock_stat;
     TextView lock_stat;
 
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         profile_add=(ImageButton) findViewById(R.id.add_profile_button);
         unlock_stat=(TextView)findViewById(R.id.unlock_status);
         lock_stat=(TextView)findViewById(R.id.lock_status);
+        history = (ImageButton) findViewById(R.id.history_button);
 
 
         FirebaseMessaging.getInstance().getToken()
@@ -95,6 +98,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Viewprofile.class);
+                startActivity(intent);
+            }
+        });
+
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (MainActivity.this, History.class);
                 startActivity(intent);
             }
         });
