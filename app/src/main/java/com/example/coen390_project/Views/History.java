@@ -54,7 +54,7 @@ public class History extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String user = snapshot.getValue(String.class);
-                list.add(user);
+                list.add(0,user);
                 arrayAdapter.notifyDataSetChanged();
             }
 
