@@ -58,7 +58,7 @@ public class Viewprofile extends AppCompatActivity {
                 User temp = new User();
                // added test
                 String key = snapshot.getKey();
-                (temp.allUsers).add(Integer.parseInt(key), user);
+                (temp.allUsers).put(key, user);
                 arrayAdapter.notifyDataSetChanged();
             }
 
