@@ -1,6 +1,7 @@
 package com.example.coen390_project.Models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class User {
 
@@ -13,7 +14,7 @@ public class User {
     static int nextID=0;
 
     // added test
-    public static ArrayList<String> allUsers = new ArrayList<String>();
+    public static HashMap<String, String> allUsers = new HashMap<String, String>();
 
     //constructor
     public User(String name) {
