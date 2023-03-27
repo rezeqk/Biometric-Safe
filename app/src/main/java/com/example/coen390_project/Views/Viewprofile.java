@@ -55,6 +55,10 @@ public class Viewprofile extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String user = snapshot.getValue(String.class);
                 list.add(user);
+                User temp = new User();
+               // added test
+                String key = snapshot.getKey();
+                (temp.allUsers).add(Integer.parseInt(key), user);
                 arrayAdapter.notifyDataSetChanged();
             }
 
