@@ -1,5 +1,7 @@
 package com.example.coen390_project.Models;
 
+import java.util.ArrayList;
+
 public class User {
 
     //assigns an ID to the user
@@ -9,6 +11,9 @@ public class User {
     public String name;
 
     static int nextID=0;
+
+    // added test
+    public static ArrayList<String> allUsers = new ArrayList<String>();
 
     //constructor
     public User(String name) {
