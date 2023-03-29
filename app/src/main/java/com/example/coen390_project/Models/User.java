@@ -11,16 +11,22 @@ public class User {
     // the name of the user
     public String name;
 
-    static int nextID=0;
+    static int nextID;
 
     // added test
     public static HashMap<String, String> allUsers = new HashMap<String, String>();
 
     //constructor
     public User(String name) {
-        //this.id = id;
+        this.id = nextID;
         this.name = name;
     }
+
+    public User(int ID, String name){
+        this.id = ID;
+        this.name = name;
+    }
+
     // default constructor
     public User(){}
 

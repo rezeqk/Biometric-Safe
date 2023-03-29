@@ -23,7 +23,6 @@ public class AddProfile_Name extends AppCompatActivity {
     private DatabaseReference mDatabase;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,45 +35,46 @@ public class AddProfile_Name extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+//        save.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Write a message to the database
+//                FirebaseDatabase database = FirebaseDatabase.getInstance();
+//                DatabaseReference myRef = database.getReference("message");
+//
+//                myRef.setValue("The name is saved");
+//            }
+//        });
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Write a message to the database
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("message");
-
-                myRef.setValue("The name is saved");
+                String name = name_creation.getText().toString();
+                Intent intent = new Intent(AddProfile_Name.this, AddProfile_Instruction.class);
+                intent.putExtra("name", name);
+                startActivity(intent);
+                //writeNewUser();
             }
         });
-
-        save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                writeNewUser();
-            }
-        });
-
-
     }
     //to write the user to firebase database
-    public void writeNewUser() {
-        User user = new User(name_creation.getText().toString());
-        //mDatabase.child("Users").child(user.getName()).setValue(user);
-        DatabaseReference newUserRef = mDatabase.child("Users").child(String.valueOf(counter()));
-        newUserRef.setValue(user.getName());
-        //mDatabase.child("Users").put("6",user.getName());
-        Intent intent = new Intent(AddProfile_Name.this, AddProfile_Instruction.class);
-        startActivity(intent);
-    }
-
-    public int counter(){
-        User tempUser = new User();
-        int thisID = tempUser.getNextID();
-        int nextID = thisID + 1;
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("nextID");
-        myRef.setValue(String.valueOf(nextID), "nextID");
-        return thisID;
-    }
-
+//    public void writeNewUser() {
+//        User user = new User(name_creation.getText().toString());
+//        //mDatabase.child("Users").child(user.getName()).setValue(user);
+//        DatabaseReference newUserRef = mDatabase.child("Users").child(String.valueOf(counter()));
+//        newUserRef.setValue(user.getName());
+//        //mDatabase.child("Users").put("6",user.getName());
+//        Intent intent = new Intent(AddProfile_Name.this, AddProfile_Instruction.class);
+//        startActivity(intent);
+//    }
+//
+//    public int counter(){
+//        User tempUser = new User();
+//        int thisID = tempUser.getNextID();
+//        int nextID = thisID + 1;
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference myRef = database.getReference("nextID");
+//        myRef.setValue(String.valueOf(nextID), "nextID");
+//        return thisID;
+//    }
 }
