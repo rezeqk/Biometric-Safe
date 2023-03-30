@@ -22,7 +22,7 @@ public class History extends AppCompatActivity {
 
     ListView list_view_history;
 
-    DatabaseReference reference;
+    DatabaseReference reference,values;
 
 
     String TAG = "TAG";
@@ -41,12 +41,90 @@ public class History extends AppCompatActivity {
         list_view_history.setAdapter(arrayAdapter);
 
         reference = FirebaseDatabase.getInstance().getReference().child("History");
+        values = FirebaseDatabase.getInstance().getReference().child("Users");
+        values.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                String user = snapshot.getValue(String.class);
+                User temp = new User();
+                String key = snapshot.getKey();
+                (temp.allUsers).put(key, user);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        reference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                String historylog = snapshot.getValue(String.class);
+                if(historylog.contains("Opened")) {
+                    String[] ReceivedValues = historylog.split("~");
+                    User temp = new User();
+                    String name = (temp.allUsers).get(ReceivedValues[1]);
+                    String toDisplay = "Opened by " + name + " On " + ReceivedValues[2];
+                    System.out.println(toDisplay);
+                    list.add(0,toDisplay);
+                }
+                else{
+                list.add(0,historylog);
+                }
+                arrayAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String user = snapshot.getValue(String.class);
-                list.add(0,user);
+                String historylog = snapshot.getValue(String.class);
+                if(historylog.contains("Opened")) {
+                    String[] ReceivedValues = historylog.split("~");
+                    User temp = new User();
+                    String name = (temp.allUsers).get(ReceivedValues[1]);
+                    String toDisplay = "Opened by " + name + " On " + ReceivedValues[2];
+                    System.out.println(toDisplay);
+                    list.add(0,toDisplay);
+                }
+                else{
+                    // list.add(0,historylog);
+                }
                 arrayAdapter.notifyDataSetChanged();
             }
 
