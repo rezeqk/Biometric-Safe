@@ -38,7 +38,7 @@ public class History extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         list_view_history= findViewById(R.id.listview_history);
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.list_profile,list);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
         list_view_history.setAdapter(arrayAdapter);
 
         reference = FirebaseDatabase.getInstance().getReference().child("History");
