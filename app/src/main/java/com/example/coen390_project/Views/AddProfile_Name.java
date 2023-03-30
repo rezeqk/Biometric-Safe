@@ -44,9 +44,15 @@ public class AddProfile_Name extends AppCompatActivity {
                 //check if name is taken
                 User tempUser = new User();
                 Boolean nameTaken = (tempUser.allUsers).containsValue(name);
+                Boolean nameEmpty = name.isEmpty();
 
                 if(nameTaken){
                     Toast.makeText(AddProfile_Name.this, "This name is already taken.", Toast.LENGTH_SHORT).show();
+
+                }else if(nameEmpty){
+
+                    Toast.makeText(AddProfile_Name.this, "Error, the name field is empty.", Toast.LENGTH_SHORT).show();
+
                 }else {
                     //continue with new profile creation
                     Intent intent = new Intent(AddProfile_Name.this, AddProfile_Instruction.class);

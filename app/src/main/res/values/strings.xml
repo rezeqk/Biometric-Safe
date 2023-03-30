@@ -3,11 +3,11 @@
 
     <!--Instructions for the instruction page -->
     <string name="instructions">
-       <br> 1. Make sure your designated finger is clean to scan  \n</br>
-        <br> 2. Wait for the yellow light to turn on \n</br>
-        <br> 3. With the fingerprint scanner light red, scan your fingerprint  \n</br>
-        <br> 4. The scanner light will turn off  \n</br>
-        <br> 5. When it turns off again, scan your finger again  \n </br>
-        <br> 6. Wait for confirmation that your fingerprint is saved \n </br>
+       <br> 1. Make sure your designated finger is clean to scan  \n \n</br>
+        <br> 2. Wait for the yellow light to turn on \n \n</br>
+        <br> 3. With the fingerprint scanner light red, scan your fingerprint \n \n</br>
+        <br> 4. The scanner light will turn off  \n \n</br>
+        <br> 5. When it turns off again, scan your finger again  \n \n </br>
+        <br> 6. Wait for confirmation that your fingerprint is saved \n \n </br>
     </string>
 </resources>
