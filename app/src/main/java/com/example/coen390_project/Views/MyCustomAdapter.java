@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.coen390_project.Models.User;
 import com.example.coen390_project.R;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -23,6 +24,8 @@ import java.util.Map;
 public class MyCustomAdapter extends ArrayAdapter<String> {
 
     DatabaseReference reference;
+    DatabaseReference safeActionReference = FirebaseDatabase.getInstance().getReference("SafeAction");
+    DatabaseReference fingerPrintDeleteRef = FirebaseDatabase.getInstance().getReference("fingerprintToDelete");
 
     public MyCustomAdapter(Context context, ArrayList<String> list, DatabaseReference reference) {
         super(context, 0, list);
@@ -49,11 +52,9 @@ public class MyCustomAdapter extends ArrayAdapter<String> {
                 for (Map.Entry<String, String> entry : User.allUsers.entrySet()) {
                     if (entry.getValue().equals(getItem(position))) {
                         System.out.println(entry.getValue() + " value " + entry.getKey());
-                        reference.child(entry.getKey()).setValue(entry.getValue().toString()+ " deleted");
-
-                    }
-                    if (entry.getValue().contains("deleted")){
-
+                        reference.child(entry.getKey()).setValue(entry.getValue().toString()+ " (deleted profile)");
+                        fingerPrintDeleteRef.setValue(Integer.parseInt(entry.getKey()));
+                        safeActionReference.setValue("delete");
                     }
                 }
             }

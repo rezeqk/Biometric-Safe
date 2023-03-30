@@ -43,29 +43,52 @@ public class Viewprofile extends AppCompatActivity {
         //@SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button deleteButton = (Button) findViewById(R.id.btn);
 
         reference = FirebaseDatabase.getInstance().getReference().child("Users");
-
+        final MyCustomAdapter arrayAdapter = new MyCustomAdapter(this, list, reference);
         getSupportActionBar().setTitle("View Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         list_view = findViewById(R.id.listview);
-        final MyCustomAdapter arrayAdapter = new MyCustomAdapter(this, list, reference);
         list_view.setAdapter(arrayAdapter);
 
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String user = snapshot.getValue(String.class);
-                list.add(user);
-
-                // added test
                 String key = snapshot.getKey();
                 (User.allUsers).put(key, user);
+
+                //update list view
+                list.clear();
+                User tempUser = new User();
+                int length = (tempUser.allUsers).size();
+
+                for(int i = 1;i<length+1;i++){
+                    String name = (tempUser.allUsers).get(String.valueOf(i));
+
+                    if(!name.contains("deleted")){
+                        list.add(name);
+                    }
+                }
                 arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String user = snapshot.getValue(String.class);
-                list.contains(user);
+                String key = snapshot.getKey();
+                (User.allUsers).put(key, user);
+
+                //update list view
+                list.clear();
+                User tempUser = new User();
+                int length = (tempUser.allUsers).size();
+
+                for(int i = 1;i<length+1;i++){
+                    String name = (tempUser.allUsers).get(String.valueOf(i));
+
+                    if(!name.contains("deleted")){
+                        list.add(name);
+                    }
+                }
                 arrayAdapter.notifyDataSetChanged();
             }
 
@@ -88,4 +111,6 @@ public class Viewprofile extends AppCompatActivity {
         });
 
     }
+    
+
 }
