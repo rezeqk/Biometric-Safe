@@ -11,35 +11,35 @@
 
     <TextView
         android:id="@+id/welcome_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_width="299dp"
+        android:layout_height="152dp"
+        android:layout_marginBottom="8dp"
         android:text="Welcome to Smart Safe!"
         android:textAllCaps="true"
-        android:textColor="#FFF"
-        android:textSize="30dp"
+        android:textColor="#fff"
+        android:textSize="35dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/status"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.857"
         app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
         android:id="@+id/add_profile"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/custom_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintHorizontal_bias="0.141"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.316">
+        app:layout_constraintVertical_bias="0.234">
 
         <ImageButton
             android:id="@+id/add_profile_button"
-            android:layout_width="116dp"
-            android:layout_height="113dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_gravity="center"
             android:background="#fff"
             android:scaleType="fitCenter"
@@ -52,26 +52,26 @@
             android:layout_marginTop="30dp"
             android:text="Add profile"
             android:textColor="@color/black"
-            android:textSize="17dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
     </FrameLayout>
 
     <FrameLayout
         android:id="@+id/status"
-        android:layout_width="126dp"
-        android:layout_height="124dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/custom_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintHorizontal_bias="0.141"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.784">
+        app:layout_constraintVertical_bias="0.836">
 
         <ImageView
             android:id="@+id/check_status_button"
-            android:layout_width="175dp"
-            android:layout_height="91dp"
+            android:layout_width="180dp"
+            android:layout_height="110dp"
             android:layout_gravity="center"
             android:background="#fff"
             android:scaleType="fitCenter"
@@ -86,7 +86,7 @@
             android:layout_marginTop="30dp"
             android:text="Locked"
             android:textColor="@color/black"
-            android:textSize="19dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
 
         <TextView
@@ -102,20 +102,20 @@
 
     <FrameLayout
         android:id="@+id/view_profile"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/custom_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.765"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.316">
+        app:layout_constraintVertical_bias="0.234">
 
         <ImageButton
             android:id="@+id/view_profile_button"
-            android:layout_width="110dp"
-            android:layout_height="109dp"
+            android:layout_width="133dp"
+            android:layout_height="118dp"
             android:layout_gravity="center"
             android:background="#fff"
             android:scaleType="fitCenter"
@@ -128,31 +128,30 @@
             android:layout_marginTop="30dp"
             android:text="View profile"
             android:textColor="@color/black"
-            android:textSize="17dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
     </FrameLayout>
 
-
     <FrameLayout
         android:id="@+id/history"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/custom_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.782">
+        app:layout_constraintVertical_bias="0.836">
 
         <ImageButton
             android:id="@+id/history_button"
             android:layout_width="110dp"
-            android:layout_height="109dp"
+            android:layout_height="115dp"
             android:layout_gravity="center"
             android:background="#fff"
             android:scaleType="fitCenter"
-            android:src="@drawable/view_profile" />
+            android:src="@drawable/history" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -161,7 +160,7 @@
             android:layout_marginTop="30dp"
             android:text="History"
             android:textColor="@color/black"
-            android:textSize="17dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
     </FrameLayout>
 

@@ -41,10 +41,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/topview_instructions"
         app:layout_constraintEnd_toEndOf="@+id/topview_instructions"
-        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/topview_instructions"
         app:layout_constraintTop_toTopOf="@+id/topview_instructions"
-        app:layout_constraintVertical_bias="0.61" />
+        app:layout_constraintVertical_bias="0.121" />
 
     <TextView
         android:id="@+id/myTextView"
@@ -52,7 +52,7 @@
         android:layout_height="475dp"
         android:text="@string/instructions"
         android:textColor="@color/black"
-        android:textSize="18dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -68,7 +68,7 @@
         android:layout_marginEnd="40dp"
         android:background="@drawable/round_border_button"
         app:backgroundTint="@null"
-        android:text="Next"
+        android:text="Start"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
