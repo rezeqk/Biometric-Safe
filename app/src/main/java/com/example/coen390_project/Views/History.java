@@ -50,6 +50,7 @@ public class History extends AppCompatActivity {
                 User temp = new User();
                 String key = snapshot.getKey();
                 (temp.allUsers).put(key, user);
+                System.out.println("ON CHILD ADDED CALLED__________________________________\n\n\n\n");
             }
 
             @Override
@@ -119,7 +120,7 @@ public class History extends AppCompatActivity {
                     String[] ReceivedValues = historylog.split("~");
                     User temp = new User();
                     String name = (temp.allUsers).get(ReceivedValues[1]);
-                    String toDisplay = "Opened by " + name + " On " + ReceivedValues[2];
+                    String toDisplay = "Opened by " + name + ReceivedValues[2];
                     System.out.println(toDisplay);
                     list.add(0,toDisplay);
                 }
