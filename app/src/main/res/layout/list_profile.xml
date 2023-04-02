@@ -13,11 +13,12 @@
         android:textSize="16dp"
         android:textStyle="bold" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn"
-        android:layout_width="wrap_content"
+        android:layout_width="30dp"
+        android:background="@drawable/trash_delete"
         android:layout_marginLeft="300sp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:text="-"
         android:textSize="16dp"
         android:textStyle="bold"/>
