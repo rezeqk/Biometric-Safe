@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.coen390_project.Models.User;
@@ -43,7 +44,7 @@ public class MyCustomAdapter extends ArrayAdapter<String> {
         profile.setText(getItem(position));
 
         //Handle buttons and add onClickListeners
-        Button deleteBtn= (Button) convertView.findViewById(R.id.btn);
+        ImageButton deleteBtn= (ImageButton)convertView.findViewById(R.id.btn);
 
         deleteBtn.setOnClickListener(new View.OnClickListener(){
             @Override
