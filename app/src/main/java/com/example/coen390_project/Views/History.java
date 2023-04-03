@@ -43,7 +43,7 @@ public class History extends AppCompatActivity {
 
         reference = FirebaseDatabase.getInstance().getReference().child("History");
         values = FirebaseDatabase.getInstance().getReference().child("Users");
-        values.addChildEventListener(new ChildEventListener() {
+       /* values.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String user = snapshot.getValue(String.class);
@@ -72,7 +72,7 @@ public class History extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });*/
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -125,7 +125,7 @@ public class History extends AppCompatActivity {
                     list.add(0,toDisplay);
                 }
                 else{
-                    // list.add(0,historylog);
+                    list.add(0,historylog);
                 }
                 arrayAdapter.notifyDataSetChanged();
             }
