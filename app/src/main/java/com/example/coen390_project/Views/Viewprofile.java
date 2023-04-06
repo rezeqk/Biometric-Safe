@@ -1,7 +1,7 @@
 package com.example.coen390_project.Views;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -29,39 +29,73 @@ public class Viewprofile extends AppCompatActivity {
 
     String TAG = "TAG";
 
+    Context context;
+
     final ArrayList<String> list = new ArrayList<>();
+
+    //ActivityDeleteDataBinding binding;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewprofile);
-        getSupportActionBar().setTitle("View Profile");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        list_view= findViewById(R.id.listview);
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.list_profile,list);
-        list_view.setAdapter(arrayAdapter);
+        //@SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button deleteButton = (Button) findViewById(R.id.btn);
 
         reference = FirebaseDatabase.getInstance().getReference().child("Users");
+        final MyCustomAdapter arrayAdapter = new MyCustomAdapter(this, list, reference);
+        getSupportActionBar().setTitle("View Profile");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        list_view = findViewById(R.id.listview);
+        list_view.setAdapter(arrayAdapter);
 
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String user = snapshot.getValue(String.class);
-                list.add(user);
-                User temp = new User();
-               // added test
                 String key = snapshot.getKey();
-                (temp.allUsers).put(key, user);
+                (User.allUsers).put(key, user);
+
+                //update list view
+                list.clear();
+                User tempUser = new User();
+                int length = (tempUser.allUsers).size();
+
+                for(int i = 1;i<length+1;i++){
+                    String name = (tempUser.allUsers).get(String.valueOf(i));
+
+                    if(!name.contains("deleted")){
+                        list.add(name);
+                    }
+                }
                 arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                String user = snapshot.getValue(String.class);
+                String key = snapshot.getKey();
+                (User.allUsers).put(key, user);
 
+                //update list view
+                list.clear();
+                User tempUser = new User();
+                int length = (tempUser.allUsers).size();
+
+                for(int i = 1;i<length+1;i++){
+                    String name = (tempUser.allUsers).get(String.valueOf(i));
+
+                    if(!name.contains("deleted")){
+                        list.add(name);
+                    }
+                }
+                arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                //Handle buttons and add onClickListeners
+                //Button deleteBtn= (Button)view.findViewById(R.id.btn);
 
             }
 
@@ -77,5 +111,6 @@ public class Viewprofile extends AppCompatActivity {
         });
 
     }
+    
 
 }

@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                     myRef.setValue("false");
                 }
 
-                Log.d(TAG, "Value is: " + value);
+                //Log.d(TAG, "Value is: " + value);
             }
 
             @Override
