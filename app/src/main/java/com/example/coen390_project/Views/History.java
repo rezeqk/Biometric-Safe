@@ -43,7 +43,8 @@ public class History extends AppCompatActivity {
 
         reference = FirebaseDatabase.getInstance().getReference().child("History");
         values = FirebaseDatabase.getInstance().getReference().child("Users");
-       /* values.addChildEventListener(new ChildEventListener() {
+
+        /* values.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String user = snapshot.getValue(String.class);
@@ -73,44 +74,7 @@ public class History extends AppCompatActivity {
 
             }
         });*/
-//        reference.addChildEventListener(new ChildEventListener() {
-//            @Override
-//            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//                String historylog = snapshot.getValue(String.class);
-//                if(historylog.contains("Opened")) {
-//                    String[] ReceivedValues = historylog.split("~");
-//                    User temp = new User();
-//                    String name = (temp.allUsers).get(ReceivedValues[1]);
-//                    String toDisplay = "Opened by " + name + " On " + ReceivedValues[2];
-//                    System.out.println(toDisplay);
-//                    list.add(0,toDisplay);
-//                }
-//                else{
-//                list.add(0,historylog);
-//                }
-//                arrayAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//
-//            }
-//
-//            @Override
-//            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-//
-//            }
-//
-//            @Override
-//            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+
 
         reference.addChildEventListener(new ChildEventListener() {
             @Override
