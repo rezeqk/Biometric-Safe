@@ -1,3 +1,12 @@
+/*
+COEN/ELEC 390
+Winter 2023
+Team 3 - Smart Safe
+
+AddProfile_Name.java
+This activity class allows users to enter their name while enrolling
+*/
+
 package com.example.coen390_project.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,8 +42,6 @@ public class AddProfile_Name extends AppCompatActivity {
         save = (Button) findViewById(R.id.save_button);
         name_creation=(EditText)findViewById(R.id.name);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,11 +55,8 @@ public class AddProfile_Name extends AppCompatActivity {
 
                 if(nameTaken){
                     Toast.makeText(AddProfile_Name.this, "This name is already taken.", Toast.LENGTH_SHORT).show();
-
                 }else if(nameEmpty){
-
                     Toast.makeText(AddProfile_Name.this, "Error, the name field is empty.", Toast.LENGTH_SHORT).show();
-
                 }else {
                     //continue with new profile creation
                     Intent intent = new Intent(AddProfile_Name.this, AddProfile_Instruction.class);

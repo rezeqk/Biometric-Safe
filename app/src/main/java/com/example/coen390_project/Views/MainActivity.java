@@ -1,3 +1,15 @@
+/*
+COEN/ELEC 390
+Winter 2023
+Team 3 - Smart Safe
+
+MainActivity.java
+This activity class is the main page of the app. It serves 3 purposes:
+1 - to navigate to other pages within the app
+2 - to display the current safe status (locked vs unlocked)
+3 - to initiate reading from Firebase Database
+*/
+
 package com.example.coen390_project.Views;
 
 import android.content.Intent;
@@ -26,28 +38,27 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-
     // initializing buttons
     ImageButton profile_add;
     ImageButton profile_view;
     ImageView status_check;
-
     ImageButton history;
 
+    //initializing text views
     TextView unlock_stat;
     TextView lock_stat;
 
-
+    //TAG used to display errors with Firebase
     String TAG = "TAG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //Add a title to the bar
         getSupportActionBar().setTitle("Main Menu");
         getSupportActionBar().hide();
-        // create a method
         profile_view=(ImageButton) findViewById(R.id.view_profile_button);
         status_check=(ImageView) findViewById(R.id.check_status_button);
         profile_add=(ImageButton) findViewById(R.id.add_profile_button);
@@ -55,41 +66,15 @@ public class MainActivity extends AppCompatActivity {
         lock_stat=(TextView)findViewById(R.id.lock_status);
         history = (ImageButton) findViewById(R.id.history_button);
 
-
-        FirebaseMessaging.getInstance().getToken()
-                .addOnCompleteListener(new OnCompleteListener<String>() {
-                    @Override
-                    public void onComplete(@NonNull Task<String> task) {
-                        if (!task.isSuccessful()) {
-                            Log.w(TAG, "Fetching FCM registration token failed", task.getException());
-                            return;
-                        }
-
-                        // Get new FCM registration token
-                        String token = task.getResult();
-
-                        // Log and toast
-                        String msg = token;
-                        Log.d(TAG, msg);
-                       // Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
-                        System.out.println("your token is " + msg);
-                    }
-                });
-
-        basicReadWrite();
+        //this function is used to read from Firebase Database
+        basicRead();
 
         //after clicking button to direct to a different page
-
         profile_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, AddProfile_Name.class);
-                        startActivity(intent);
-                // Write a message to the database
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("message");
-
-                myRef.setValue("Hello, World!");
+                startActivity(intent);
             }
         });
 
@@ -108,26 +93,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
-    public void basicReadWrite() {
-        // [START write_message]
-        // Write a message to the database
+    //read from Firebase Database
+    public void basicRead() {
+        //get database reference
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
 
-//        myRef.setValue("Hello, World!");
-        // [END write_message]
-
-        // [START read_message]
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
-                // whenever data at this location is updated.
+                // whenever data at this location is updated
+
+                //extract data from Firebase using a map
                 Map<String, String> value = (Map<String, String>) dataSnapshot.getValue();
                 String door_status="";
                 String invalidFingerprint = "";
@@ -158,8 +139,6 @@ public class MainActivity extends AppCompatActivity {
                     DatabaseReference myRef = database.getReference("InvalidFingerprint");
                     myRef.setValue("false");
                 }
-
-                //Log.d(TAG, "Value is: " + value);
             }
 
             @Override
@@ -168,34 +147,5 @@ public class MainActivity extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
-        // [END read_message]
     }
-
-    // Declare the launcher at the top of your Activity/Fragment:
-//    private final ActivityResultLauncher<String> requestPermissionLauncher =
-//            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
-//                if (isGranted) {
-//                    // FCM SDK (and your app) can post notifications.
-//                } else {
-//                    // TODO: Inform user that that your app will not show notifications.
-//                }
-//            });
-
-//    private void askNotificationPermission() {
-//        // This is only necessary for API level >= 33 (TIRAMISU)
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-//            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
-//                    PackageManager.PERMISSION_GRANTED) {
-//                // FCM SDK (and your app) can post notifications.
-//            } else if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
-//                // TODO: display an educational UI explaining to the user the features that will be enabled
-//                //       by them granting the POST_NOTIFICATION permission. This UI should provide the user
-//                //       "OK" and "No thanks" buttons. If the user selects "OK," directly request the permission.
-//                //       If the user selects "No thanks," allow the user to continue without notifications.
-//            } else {
-//                // Directly ask for the permission
-//                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS);
-//            }
-//        }
-//    }
 }

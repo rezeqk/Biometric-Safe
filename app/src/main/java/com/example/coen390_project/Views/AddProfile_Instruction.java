@@ -1,3 +1,13 @@
+/*
+COEN/ELEC 390
+Winter 2023
+Team 3 - Smart Safe
+
+AddProfile_Instruction.java
+This activity class provides users instructions on how to enroll a fingerprint and
+initiates enrollment process on physical safe
+*/
+
 package com.example.coen390_project.Views;
 
 import androidx.annotation.NonNull;
@@ -24,7 +34,7 @@ public class AddProfile_Instruction extends AppCompatActivity {
 
     Button button_create;
     FirebaseDatabase database;
-    User tempUser = new User();
+    User tempUser = new User();     //used to access the user ID
     int newUserID;
     String newUserName;
 
@@ -36,6 +46,7 @@ public class AddProfile_Instruction extends AppCompatActivity {
         button_create=(Button) findViewById(R.id.create_button);
         database = FirebaseDatabase.getInstance();
 
+            //this button is used to initiate enrollment
             button_create.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -49,7 +60,7 @@ public class AddProfile_Instruction extends AppCompatActivity {
                     //get the new ID
                     newUserID = tempUser.getNextID();
 
-                    //tell microcontroller to start enrolling
+                    //tell microcontroller to start enrolling through Firebase database
                     DatabaseReference myRef = database.getReference("enrolling");
                     DatabaseReference myRef2 = database.getReference("SafeAction");
                     myRef.setValue(String.valueOf(newUserID), "enrolling");
@@ -72,7 +83,7 @@ public class AddProfile_Instruction extends AppCompatActivity {
                     DatabaseReference nextIDReference = database.getReference("nextID");
                     nextIDReference.setValue(String.valueOf(nextID));
 
-                    //set enrolling back to neutral
+                    //set enrolling back to neutral so physical safe leaves enrolling mode
                     myRef3.setValue("-");
 
                     //toast that enrollment was successful
@@ -90,7 +101,7 @@ public class AddProfile_Instruction extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-    }//end of on create function
+    }
 
     void addUserToFirebase(String name, int ID){
         //access database and add a key value pair, where the key is the ID of the new user

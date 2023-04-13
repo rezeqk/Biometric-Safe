@@ -1,6 +1,15 @@
+/*
+COEN/ELEC 390
+Winter 2023
+Team 3 - Smart Safe
+
+Viewprofile.java
+This class is used to create the list view with all of the active profiles.
+It also allows user to delete profiles
+*/
+
 package com.example.coen390_project.Views;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -8,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.coen390_project.Controllers.MyCustomAdapter;
 import com.example.coen390_project.Models.User;
 import com.example.coen390_project.R;
 import com.google.firebase.database.ChildEventListener;
@@ -20,38 +30,31 @@ import java.util.ArrayList;
 
 
 public class Viewprofile extends AppCompatActivity {
-
-
     ListView list_view;
-
     DatabaseReference reference;
-
-
-    String TAG = "TAG";
-
-    Context context;
-
-    final ArrayList<String> list = new ArrayList<>();
-
-    //ActivityDeleteDataBinding binding;
-
-
+    final ArrayList<String> list = new ArrayList<>();    //contains list of profiles
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewprofile);
-        //@SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button deleteButton = (Button) findViewById(R.id.btn);
 
+        //get firebase reference to access database
         reference = FirebaseDatabase.getInstance().getReference().child("Users");
+
+        //adapter is used to update list view
         final MyCustomAdapter arrayAdapter = new MyCustomAdapter(this, list, reference);
         getSupportActionBar().setTitle("View Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         list_view = findViewById(R.id.listview);
         list_view.setAdapter(arrayAdapter);
 
+        //whenever a user is added or deleted, we want to update list real time
+        // so we use a child event to listener
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                //when a user is added, add them to the hashmap with all users and
+                // any active users (users that aren't deleted), add them to list
                 String user = snapshot.getValue(String.class);
                 String key = snapshot.getKey();
                 (User.allUsers).put(key, user);
@@ -73,6 +76,8 @@ public class Viewprofile extends AppCompatActivity {
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                //when a user name is changed, it means they are deleted
+                //so, we update the list view to remove deleted user from list
                 String user = snapshot.getValue(String.class);
                 String key = snapshot.getKey();
                 (User.allUsers).put(key, user);
@@ -94,23 +99,19 @@ public class Viewprofile extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                //Handle buttons and add onClickListeners
-                //Button deleteBtn= (Button)view.findViewById(R.id.btn);
+                //not used
 
             }
 
             @Override
             public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
+                //not used
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                //not used
             }
         });
-
     }
-    
-
 }

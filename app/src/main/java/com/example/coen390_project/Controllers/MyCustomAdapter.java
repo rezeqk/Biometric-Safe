@@ -1,4 +1,14 @@
-package com.example.coen390_project.Views;
+/*
+COEN/ELEC 390
+Winter 2023
+Team 3 - Smart Safe
+
+MyCustomAdapter.java
+This class is used to create the list view with user names and clickable delete buttons in the
+viewProfiles activity
+*/
+
+package com.example.coen390_project.Controllers;
 
 import android.content.Context;
 import android.view.LayoutInflater;

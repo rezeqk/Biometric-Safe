@@ -1,3 +1,12 @@
+/*
+COEN/ELEC 390
+Winter 2023
+Team 3 - Smart Safe
+
+SplashScreen.java
+This class is used to create the app's splash screen
+*/
+
 package com.example.coen390_project.Views;
 
 import android.content.Intent;

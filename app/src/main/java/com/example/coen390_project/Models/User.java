@@ -1,3 +1,11 @@
+/*
+COEN/ELEC 390
+Winter 2023
+Team 3 - Smart Safe
+
+User.java
+This class is used to store all safe user's names and id's
+*/
 package com.example.coen390_project.Models;
 
 import java.util.ArrayList;
@@ -5,29 +13,30 @@ import java.util.HashMap;
 
 public class User {
 
-    //assigns an ID to the user
+    //user ID
     private int id;
 
-    // the name of the user
+    //the name of the user
     public String name;
 
     static int nextID;
 
-    // added test
+    //this hashmap stores all of the users that are currently in database
     public static HashMap<String, String> allUsers = new HashMap<String, String>();
 
-    //constructor
+    //constructor that automatically assigns id based on next ID
     public User(String name) {
         this.id = nextID;
         this.name = name;
     }
 
+    //constructor that takes ID and name and creates a user
     public User(int ID, String name){
         this.id = ID;
         this.name = name;
     }
 
-    // default constructor
+    // default empty constructor - required for Firebase
     public User(){}
 
     // setters and getters
